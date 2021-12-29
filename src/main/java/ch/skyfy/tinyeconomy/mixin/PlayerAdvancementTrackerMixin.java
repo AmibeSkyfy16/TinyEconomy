@@ -1,6 +1,7 @@
 package ch.skyfy.tinyeconomy.mixin;
 
 import ch.skyfy.tinyeconomy.Configurator;
+import ch.skyfy.tinyeconomy.TinyEconomy;
 import ch.skyfy.tinyeconomy.database.Database;
 import ch.skyfy.tinyeconomy.features.Economy;
 import net.minecraft.advancement.Advancement;
@@ -30,6 +31,7 @@ public class PlayerAdvancementTrackerMixin {
             at = @At(value = "INVOKE", target = "Lnet/minecraft/server/network/ServerPlayNetworkHandler;sendPacket(Lnet/minecraft/network/Packet;)V", shift = At.Shift.AFTER),
             locals = LocalCapture.CAPTURE_FAILSOFT)
     private void injectAdvancementLoader(ServerPlayerEntity player, CallbackInfo ci, Map<Identifier, AdvancementProgress> map, Set<Advancement> set, Set<Identifier> set2) {
+        if(TinyEconomy.DISABLED.get())return;
         for (var advancementAdvancementProgressEntry : advancementToProgress.entrySet()) {
             if (advancementAdvancementProgressEntry.getValue().isDone()) {
                 var currentAdvancementId = advancementAdvancementProgressEntry.getKey().getId().toString(); // the value is : minecraft:story/mine_stone
