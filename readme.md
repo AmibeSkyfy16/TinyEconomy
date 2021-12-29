@@ -7,6 +7,19 @@ Players on the server will be able to buy and sell items between them
 
 There is actually one command /monney
 
+# Rewards
+
+You will find a folder called TinyEconomy under config folder of your server.
+In this folder, you can configure different price rewards
+
+by default all price reward are 0.0
+
+There is actually 3 types of rewards
+
+    1. When you mine a block (if you mine with silk touch, you will not be rewarded)
+    2. When you kill an entity
+    3. When you completed a Advancement
+
 # How create a shop
 
     1. You have to place a barrel and a wall_sign in the front of it
