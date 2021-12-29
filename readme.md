@@ -15,6 +15,6 @@ There is actually one command /monney
         0: PlayerName
         1:
         2: 64 -> 689
-        3. a short description of the item you'are selling
+        3. a short description of the item you'are selling (not required)
 
 64 -> 689 mean you are selling 64 of item that you put in your barrel for 689 $Kukukiol
