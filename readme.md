@@ -3,6 +3,8 @@
 This mod adds a money system, as well as a reward system.
 Players on the server will be able to buy and sell items between them
 
+You can use this mod only server sided. But for extra feature i recommand on both, client and server
+
 # Command
 
 There is actually one command /monney
