@@ -1,0 +1,62 @@
+{
+  "price_alert": {
+    "subtitle": "subtitles.skyfymod.price_alert",
+    "sounds": [
+      {
+        "name": "price_alert",
+        "stream": true,
+        "preload": true,
+        "type": "event"
+      },
+      "skyfymod:price_alert"
+    ]
+  },
+  "dyk_base": {
+    "subtitle": "subtitles.skyfymod.dyk_base",
+    "sounds": [
+      {
+        "name": "dyk_base",
+        "stream": true,
+        "preload": true,
+        "type": "event"
+      },
+      "skyfymod:dyk/dyk_base"
+    ]
+  },
+  "hadda1": {
+    "subtitle": "subtitles.skyfymod.hadda1",
+    "sounds": [
+      {
+        "name": "hadda1",
+        "stream": true,
+        "preload": true,
+        "type": "event"
+      },
+      "skyfymod:dyk/hadda1"
+    ]
+  },
+  "hadda2": {
+    "subtitle": "subtitles.skyfymod.hadda2",
+    "sounds": [
+      {
+        "name": "hadda2",
+        "stream": true,
+        "preload": true,
+        "type": "event"
+      },
+      "skyfymod:dyk/hadda2"
+    ]
+  },
+  "hadda3": {
+    "subtitle": "subtitles.skyfymod.hadda3",
+    "sounds": [
+      {
+        "name": "hadda3",
+        "stream": true,
+        "preload": true,
+        "type": "event"
+      },
+      "skyfymod:dyk/hadda3"
+    ]
+  }
+}

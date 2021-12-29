@@ -1,0 +1,95 @@
+//file:noinspection GroovyAssignabilityCheck
+plugins {
+    id 'fabric-loom' version '0.10-SNAPSHOT'
+    id 'maven-publish'
+}
+
+archivesBaseName = project.archives_base_name
+version = project.mod_version
+group = project.maven_group
+
+repositories {
+    flatDir {
+        dirs 'lib'
+    }
+    maven {
+        name 'velocity'
+        url 'https://nexus.velocitypowered.com/repository/maven-public/'
+    }
+
+    maven {
+        name = 'Ladysnake Mods'
+        url = 'https://ladysnake.jfrog.io/artifactory/mods'
+    }
+
+    maven {
+        url 'https://maven.bymartrixx.me'
+    }
+    mavenCentral()
+
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    include modApi("me.bymartrixx.player-events:api:2.2.2")
+    include modImplementation("me.bymartrixx.player-events:api:2.2.2")
+
+    implementation group: 'org.reflections', name: 'reflections', version: '0.10.1'
+    implementation 'org.xerial:sqlite-jdbc:3.36.0.3'
+
+//    implementation name: 'sqlite-jdbc-3.36.0.3-mod'
+//    include modImplementation('sqlite-jdbc-3.36.0.3-mod')
+//    include modApi('sqlite-jdbc-3.36.0.3-mod')
+
+    testImplementation 'org.xerial:sqlite-jdbc:3.36.0.3'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = "UTF-8"
+    it.options.release.set(17)
+}
+
+java {
+    withSourcesJar()
+}
+
+jar {
+    from("LICENSE") {
+        rename { "${it}_${project.archivesBaseName}" }
+    }
+}
+
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+// configure the maven publication
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            // add all the jars that should be included when publishing to maven
+            artifact(remapJar) {
+                builtBy remapJar
+            }
+            artifact(sourcesJar) {
+                builtBy remapSourcesJar
+            }
+        }
+    }
+}
