@@ -18,7 +18,7 @@ There is actually 3 types of rewards
 
     1. When you mine a block (if you mine with silk touch, you will not be rewarded)
     2. When you kill an entity
-    3. When you completed a Advancement
+    3. When you completed an advancement
 
 # How create a shop
 
