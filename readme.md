@@ -3,7 +3,7 @@
 This mod adds a money system, as well as a reward system.
 Players on the server will be able to buy and sell items between them
 
-You can use this mod only server sided. But for extra feature i recommand on both, client and server
+You can use this mod only server side. But for extra feature i recommand on both, client and server
 
 # Command
 
@@ -20,7 +20,7 @@ There is actually 3 types of rewards
 
     1. When you mine a block (if you mine with silk touch, you will not be rewarded)
     2. When you kill an entity
-    3. When you completed an advancement
+    3. When you complete an advancement
 
 # How create a shop
 
