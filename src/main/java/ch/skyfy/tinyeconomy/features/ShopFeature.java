@@ -8,6 +8,7 @@ import net.minecraft.block.BarrelBlock;
 import net.minecraft.block.WallSignBlock;
 import net.minecraft.block.entity.BarrelBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.entity.SignBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -61,6 +62,11 @@ public class ShopFeature {
                     return ActionResult.FAIL;
             }
         }
+        var shopResult = isAShop(hitResult.getBlockPos(), world, player, UseBlockCallback.class);
+        var blockEn = world.getBlockEntity(hitResult.getBlockPos());
+        if (blockEn != null)
+            if (blockEn.getType() == BlockEntityType.BARREL && shopResult.isShop() && !shopResult.vendorName().equals(player.getName().asString()))
+                return ActionResult.CONSUME;
         return ActionResult.PASS;
     }
 

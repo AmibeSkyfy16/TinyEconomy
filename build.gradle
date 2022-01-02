@@ -41,10 +41,6 @@ dependencies {
     implementation group: 'org.reflections', name: 'reflections', version: '0.10.1'
     implementation 'org.xerial:sqlite-jdbc:3.36.0.3'
 
-//    implementation name: 'sqlite-jdbc-3.36.0.3-mod'
-//    include modImplementation('sqlite-jdbc-3.36.0.3-mod')
-//    include modApi('sqlite-jdbc-3.36.0.3-mod')
-
     testImplementation 'org.xerial:sqlite-jdbc:3.36.0.3'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.2'
@@ -79,11 +75,9 @@ test {
     useJUnitPlatform()
 }
 
-// configure the maven publication
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            // add all the jars that should be included when publishing to maven
             artifact(remapJar) {
                 builtBy remapJar
             }

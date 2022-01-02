@@ -1,6 +1,7 @@
 package ch.skyfy.tinyeconomy;
 
 import ch.skyfy.tinyeconomy.features.earn.DefaultEarnData;
+import ch.skyfy.tinyeconomy.features.earn.DefaultEarnDataSkyfy16;
 import ch.skyfy.tinyeconomy.features.earn.EarnData;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
@@ -46,25 +47,25 @@ public class Configurator {
         try {
             var blockMinedRewardsFile = earnDataFolder.toPath().resolve("blockMinedRewards.json").toFile();
             if (blockMinedRewardsFile.exists()) {
-                blockMinedRewards = getRewards(blockMinedRewardsFile, DefaultEarnData.DEFAULT_BLOCK_MINED_REWARDS);
+                blockMinedRewards = getRewards(blockMinedRewardsFile, DefaultEarnDataSkyfy16.DEFAULT_BLOCK_MINED_REWARDS);
             } else {
-                blockMinedRewards = DefaultEarnData.DEFAULT_BLOCK_MINED_REWARDS;
+                blockMinedRewards = DefaultEarnDataSkyfy16.DEFAULT_BLOCK_MINED_REWARDS;
                 saveRewards(blockMinedRewardsFile, blockMinedRewards);
             }
 
             var advancementRewardsFile = earnDataFolder.toPath().resolve("advancementRewards.json").toFile();
             if (advancementRewardsFile.exists()) {
-                advancementRewards = getRewards(advancementRewardsFile, DefaultEarnData.DEFAULT_ADVANCEMENT_REWARDS);
+                advancementRewards = getRewards(advancementRewardsFile, DefaultEarnDataSkyfy16.DEFAULT_ADVANCEMENT_REWARDS);
             } else {
-                advancementRewards = DefaultEarnData.DEFAULT_ADVANCEMENT_REWARDS;
+                advancementRewards = DefaultEarnDataSkyfy16.DEFAULT_ADVANCEMENT_REWARDS;
                 saveRewards(advancementRewardsFile, advancementRewards);
             }
 
             var entityRewardsFile = earnDataFolder.toPath().resolve("entityRewards.json").toFile();
             if (entityRewardsFile.exists()) {
-                entityRewards = getRewards(entityRewardsFile, DefaultEarnData.DEFAULT_ENTITY_REWARDS);
+                entityRewards = getRewards(entityRewardsFile, DefaultEarnDataSkyfy16.DEFAULT_ENTITY_REWARDS);
             } else {
-                entityRewards = DefaultEarnData.DEFAULT_ENTITY_REWARDS;
+                entityRewards = DefaultEarnDataSkyfy16.DEFAULT_ENTITY_REWARDS;
                 saveRewards(entityRewardsFile, entityRewards);
             }
         }catch (IOException e){

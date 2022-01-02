@@ -43,9 +43,6 @@ public class DbUtils {
     }
 
     public static void updateRewards(String url, String getRewardQuery, String updateRewardQuery, String rewardAmount, String id, Map<String, Double>rewards) {
-        if(id.contains("adva")){
-            System.out.println();
-        }
         executeQuery(url, statement -> {
             rewards.forEach((key, value) -> {
                 var formattedGetRewardQuery = getRewardQuery.formatted(key);

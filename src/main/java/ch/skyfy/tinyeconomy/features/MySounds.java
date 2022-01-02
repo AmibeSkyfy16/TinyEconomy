@@ -28,7 +28,7 @@ public class MySounds {
     }
 
     public static void playSound(ServerPlayerEntity player, String soundName, float volume, float pitch) {
-        System.out.println("SENDING TO PLAYER");
+//        System.out.println("SENDING TO PLAYER");
         var soundEvent = sounds.stream().filter(soundEvent1 -> soundEvent1.getId().getPath().equalsIgnoreCase(soundName)).findFirst();
         soundEvent.ifPresent(soundEvent1 -> {
             player.getWorld().playSound(null, player.getBlockPos(), soundEvent1, SoundCategory.BLOCKS, volume, pitch);
