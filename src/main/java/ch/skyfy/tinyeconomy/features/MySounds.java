@@ -11,7 +11,7 @@ import java.util.List;
 
 public class MySounds {
 
-    public static final Identifier PRICE_ALERT_ID = new Identifier("skyfymod", "price_alert");
+    public static final Identifier PRICE_ALERT_ID = new Identifier("tinyeconomy", "price_alert");
     public static SoundEvent PRICE_ALERT_EVENT = new SoundEvent(PRICE_ALERT_ID);
 
     private static final List<SoundEvent> sounds = new ArrayList<>() {{
